@@ -8,9 +8,6 @@ from bson import ObjectId
 
 app = Flask(__name__)
 
-# Carga variables de entorno
-load_dotenv()
-
 # Configuración de Redpanda
 KAFKA_CONFIG = {
     'bootstrap.servers': 'cvq4abs3mareak309q80.any.us-west-2.mpx.prd.cloud.redpanda.com:9092',
