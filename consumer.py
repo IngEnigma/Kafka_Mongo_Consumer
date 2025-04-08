@@ -36,16 +36,18 @@ def insert_crime(data):
         db = client[DB_NAME]
         collection = db[COLLECTION_NAME]
         
-        # Convertir string dates a objetos datetime
+        # Convertir string dates a objetos datetime usando el formato que contempla microsegundos
+        date_format = '%Y-%m-%d %H:%M:%S.%f'
+        
         if 'crime_details' in data and 'report_date' in data['crime_details']:
             if isinstance(data['crime_details']['report_date'], str):
                 data['crime_details']['report_date'] = datetime.strptime(
-                    data['crime_details']['report_date'], '%Y-%m-%d %H:%M:%S')
+                    data['crime_details']['report_date'], date_format)
         
         if 'metadata' in data and 'imported_at' in data['metadata']:
             if isinstance(data['metadata']['imported_at'], str):
                 data['metadata']['imported_at'] = datetime.strptime(
-                    data['metadata']['imported_at'], '%Y-%m-%d %H:%M:%S')
+                    data['metadata']['imported_at'], date_format)
         
         # Insertar o actualizar (upsert)
         result = collection.update_one(
