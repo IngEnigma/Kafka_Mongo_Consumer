@@ -25,7 +25,7 @@ MONGO_URI = "mongodb+srv://IngEnigma:0ZArHx18XQIFWPHu@bigdata.iwghsuv.mongodb.ne
 DB_NAME = "BigData"
 COLLECTION_NAME = "BigData"  
 
-TOPIC = "crimes_mongodb"  # Debe coincidir con el tópico del producer
+TOPIC = "crimes_mongo"  # Debe coincidir con el tópico del producer
 
 def get_mongo_client():
     return MongoClient(MONGO_URI)
