@@ -13,7 +13,7 @@ RUN apt-get update && \
 COPY requirements.txt .
 
 # Instalar dependencias de Python
-RUN pip install --no-cache-dir -r requirements-mongodb.txt && \
+RUN pip install --no-cache-dir -r requirements.txt && \
     # Limpieza para reducir tamaño de imagen
     apt-get remove -y gcc python3-dev && \
     apt-get autoremove -y && \
