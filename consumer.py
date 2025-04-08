@@ -80,10 +80,12 @@ def kafka_consumer_loop():
             msg = consumer.poll(1.0)
             
             if msg is None:
+                print("No hay nuevos mensajes...")
                 continue
                 
             if msg.error():
                 if msg.error().code() == KafkaException._PARTITION_EOF:
+                    print("Fin de partición alcanzado")
                     continue
                 else:
                     print(f"Error al consumir: {msg.error()}")
