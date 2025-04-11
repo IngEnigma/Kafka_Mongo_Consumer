@@ -1,10 +1,10 @@
-import json
-import threading
-import logging
-from datetime import datetime
-from flask import Flask
 from confluent_kafka import Consumer, KafkaException
 from pymongo import MongoClient
+from datetime import datetime
+from flask import Flask
+import threading
+import logging
+import json
 
 logging.basicConfig(
     level=logging.INFO,
